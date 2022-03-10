@@ -1,9 +1,10 @@
 @import './mixins';
 @import './variables';
 @import '../blocks/footer/footer.scss';
-@import '../blocks/form/form.scss';
+@import '../blocks/form-block/form-block.scss';
 @import '../blocks/popup-form/popup-form.scss';
 @import '../blocks/popup/popup.scss';
+
 
 html {
     font-family: $font-family;
@@ -11,5 +12,17 @@ html {
     -webkit-tap-highlight-color: transparent;
 }
 
+body {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    margin: 0;
+
+    
+    background-image: url('../img/background.webp');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
 

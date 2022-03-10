@@ -1,0 +1,28 @@
+@import '../../scss/mixins';
+@import '../../scss/variables';
+
+.footer {
+    height: 100%;
+    width: 80%;
+    max-width: $breakpoint-max;
+    min-width: $breakpoint-mobile;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.footer__paw-icon {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    transform: rotate(322deg);
+
+    @include mediaMobile {
+        width: 30px;
+        height: 30px;
+    }
+}

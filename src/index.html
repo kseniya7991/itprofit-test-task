@@ -11,43 +11,51 @@
 
   <body>
     <footer class="footer">
-      <form class="form">
-        <h2 class="form__heading"></h2>
-        <p class="form__description"></p>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          class="form__input"
-          placeholder="Your Name"
+      <div class="form-block">
+        <h2 class="form__heading">Feel free to contact us</h2>
+        <img
+          src="<%=require('./img/paw.png')%>"
+          alt="paw icon"
+          class="footer__paw-icon"
         />
-        <span class="form__input-error form__input-error_active"></span>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          class="form__input"
-          placeholder="Your Email"
-        />
-        <span class="form__input-error form__input-error_active"></span>
-        <input
-          type="text"
-          id="phone"
-          name="phone"
-          class="form__input"
-          placeholder="Your Phone"
-        />
-        <span class="form__input-error form__input-error_active"></span>
-        <textarea
-          id="message"
-          name="message"
-          class="form__input_textarea"
-          placeholder="Your Message"
-        >
-        </textarea>
-        <span class="form__input-error form__input-error_active"></span>
-        <button class="form__submit-btn" type="submit">Submit</button>
-      </form>
+        <p class="form__description">
+          Street animals need our protection. Help them today.
+        </p>
+        <form class="form">
+          <input
+            type="text"
+            id="name"
+            name="name"
+            class="form__input"
+            placeholder="Your Name"
+          />
+          <p class="form__input-error">Text error</p>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="form__input"
+            placeholder="Your Email"
+          />
+          <p class="form__input-error">Text error</p>
+          <input
+            type="text"
+            id="phone"
+            name="phone"
+            class="form__input"
+            placeholder="Your Phone"
+          />
+          <p class="form__input-error form__input-error_active">Text error</p>
+          <textarea
+            id="message"
+            name="message"
+            class="form__input form__input_textarea"
+            placeholder="Your Message"
+          ></textarea>
+          <p class="form__input-error form__input-error_active">Text error</p>
+          <button class="form__submit-btn" type="submit">Submit</button>
+        </form>
+      </div>
     </footer>
     <div class="popup">
       <form class="popup-form">

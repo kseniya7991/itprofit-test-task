@@ -1,0 +1,9 @@
+@import '../scss/variables';
+
+
+// Миксины для брейкпоинтов
+@mixin mediaMobile {
+    @media (max-width: #{$breakpoint-mobile}) {
+      @content;
+    }
+}

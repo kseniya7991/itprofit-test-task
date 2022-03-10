@@ -1,0 +1,147 @@
+@import '../../scss/mixins';
+@import '../../scss/variables';
+
+.form-block {
+    position: relative;
+    width: 400px;
+    padding: 50px 30px;
+    margin: 30px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    
+    background-color: rgba(0, 0, 0, 0.918);
+
+    @include mediaMobile {
+        padding: 30px 20px;
+    }
+}
+
+.form {
+    width: 100%;
+    padding: 0px 10px 0px 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.form__heading {
+    margin: 0;
+    margin-bottom: 30px;
+    font-size: 35px;
+    font-weight: 600;
+    color: $form-heading;
+
+    text-align: center;
+
+    @include mediaMobile {
+        line-height: 120%;
+        font-size: 30px;
+    }
+}
+
+.form__description {
+    margin: 0;
+    margin-bottom: 30px;
+    font-size: 13px;
+    font-weight: 200;
+    color: $form-text-color;
+    line-height: 150%;
+    letter-spacing: 1px;
+}
+
+
+.form__input {
+    position: relative;
+    width: 100%;
+    outline: none;
+    border: 0;
+    padding: 10px 5px 10px 5px;
+    margin-bottom: 22px;
+    box-sizing: border-box;
+    background-color: transparent;
+
+    color: $form-text-color;
+    font-family: $font-family;
+    font-weight: 300;
+    text-decoration: none;
+    letter-spacing: 1px;
+    font-size: 14px;
+
+    border-bottom: 1px solid $input-border;
+
+    &::placeholder {
+        font-size: 13px;
+    }
+}
+
+.form__input_textarea {
+    text-align: left;
+    max-height: 150px;
+    min-height: 50px;
+    width: 100%;
+    max-width: 100%;
+    resize: vertical;
+
+    font-size: 14px;
+    letter-spacing: 1px;
+    line-height: 120%;
+}
+
+.form__input-error {
+    position: relative;
+    top: -18px;
+    display: none;
+    margin: 0;
+    padding: 0;
+    color: $input-error;
+    font-weight: 100;
+    letter-spacing: 1px;
+    font-size: 12px;
+
+    &_active {
+        display: block;
+    }
+}
+
+.form__background {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    top: 50%;
+    left: 50%;
+    box-shadow: 0px 0px 100px 200px rgba(0, 0, 0, 0.801);
+}
+
+.form__submit-btn {
+    position: relative;
+    width: 150px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    align-self: center;
+
+    border-radius: 30px;
+    background-color: transparent;
+    border: 1px solid $form-text-color;
+
+    text-align: center;
+    color: $form-text-color;
+    font-size: 14px;
+    text-transform: uppercase;
+
+/*     &::after {
+        position: absolute;
+        content: "";
+        width: 20px;
+        height: 20px;
+        background-image: url('../../img/arrow.png');
+        right: 12px;
+        top: 50%;
+        transform: translate(0, -50%);
+        background-size: contain;
+    } */
+}
