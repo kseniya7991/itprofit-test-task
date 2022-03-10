@@ -38,6 +38,7 @@
   },
   "dependencies": {
     "cssnano": "^5.0.16",
+    "mask-input": "^1.0.3",
     "node-polyfill-webpack-plugin": "^1.1.4",
     "resolve-url-loader": "^5.0.0"
   }
