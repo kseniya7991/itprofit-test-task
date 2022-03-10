@@ -3,5 +3,22 @@
 
 .popup {
     position: absolute;
-    display: none;
+    display: block;
+    min-width: 360px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(24, 24, 24, 0.76);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    visibility: hidden;
+
+    &_active {
+        visibility: visible;
+    }
 }
+
