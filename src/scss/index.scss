@@ -1,0 +1,15 @@
+@import './mixins';
+@import './variables';
+@import '../blocks/footer/footer.scss';
+@import '../blocks/form/form.scss';
+@import '../blocks/popup-form/popup-form.scss';
+@import '../blocks/popup/popup.scss';
+
+html {
+    font-family: $font-family;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+
