@@ -9,24 +9,6 @@ const popup = document.querySelector('.popup'),
     spinner = document.querySelector('.spinner'),
     scroll = calcScroll();
 
-
-//Корректировка отступов для отсутствия дергания страницы при открытии попапа
-const openPopupFix = () => {
-    document.body.style.overflowY = "hidden";
-    document.body.style.paddingRight = `${scroll}px`;
-    form.style.marginLeft = `0px`;
-    popupBtn.style.marginRight = `${scroll}px`; 
-}
-
-//Корректировка отступов для отсутствия дергания страницы при закрытии попапа    
-const closePopupFix = () => {
-    document.body.style.overflowY = "scroll";
-    document.body.style.paddingRight = `0px`;
-    form.style.marginLeft = `${scroll}px`;
-    popupBtn.style.marginRight = `0px`;
-}
-    
-
 //Обработка кликов на попап. При клике на оверлей или одну из кнопок закрытия вызывается закрытие попапа
 export const handlePopup = () => {
     popup.addEventListener('click', (e) => {
@@ -47,9 +29,10 @@ export const openPopup = (status, description) => {
     popupMessage.textContent = description || "message";
     popup.classList.add('popup_active');
 
-    openPopupFix();
-
-    console.log(status)
+    document.body.style.overflowY = "hidden";
+    document.body.style.paddingRight = `${scroll}px`;
+    form.style.marginLeft = `0px`;
+    popupBtn.style.marginRight = `${scroll}px`; 
 
     if(status === "success") {
         spinner.classList.remove('spinner_active');
@@ -71,7 +54,12 @@ export const openPopup = (status, description) => {
 //Закрытие попапа (при клике на оверлей или на одну из кнопок для закрытия)
 const closePopup = () => {
     popup.classList.remove('popup_active');
-    closePopupFix();
+
+    document.body.style.overflowY = "scroll";
+    document.body.style.paddingRight = `0px`;
+    form.style.marginLeft = `${scroll}px`;
+    popupBtn.style.marginRight = `0px`;
+    
 }
 
 // Функция подсчета размера скролла
