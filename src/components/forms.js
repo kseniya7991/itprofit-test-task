@@ -102,10 +102,14 @@ const forms = () => {
         setTimeout(() => {
             postData("/", formData)
             .then((res) => {
-                //Если ответ есть и его статус успешен - открытие попапа с данными
+
                 if (res.status === "success") {
                     openPopup(res.status, res.msg)
+                    //Очистка инпутов, только если форма успешно отправлена
+                    clearInputs();
+                    
                 } else if ((Object.keys(res).length !== 0) && res.status){
+
                 //Если объект ответа не пуст и его статус неуспешен или какой-либо другой - открытие попапа с данными + обработка сообщения с ошибками
                     const errorMessage = handleErrorMessage(res.fields);
                     openPopup(res.status, errorMessage)
@@ -124,9 +128,9 @@ const forms = () => {
                 }
             })
             .finally(() => {
-                clearInputs();
-                submitBtn.classList.remove('form__submit-btn_active')
-                submitBtn.setAttribute("disabled", "disabled");
+                toggleButton(inputList)
+/*                 submitBtn.classList.remove('form__submit-btn_active')
+                submitBtn.setAttribute("disabled", "disabled"); */
             });
         },2000)
         

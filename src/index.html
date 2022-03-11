@@ -91,15 +91,16 @@
       <button type="button" class="popup-button">Popup</button>
       <div class="popup">
         <form class="popup-form">
+          <div type="button" class="popup-form__close_wrap"><button type="button" class="popup-form__close"></div>
           <h2 class="popup-form__status"></h2>
-          <p class="popup-form__message"></p>
+
           <img
-            src="<%=require('./img/dog.png')%>"
+            src="<%=require('./img/success.png')%>"
             alt="cat"
             class="popup__image popup__image_success"
           />
           <img
-            src="<%=require('./img/cat.png')%>"
+            src="<%=require('./img/error.png')%>"
             alt="cat"
             class="popup__image popup__image_failure"
           />
@@ -113,7 +114,7 @@
               stroke-width="5"
             ></circle>
           </svg>
-          <button type="button" class="popup-form__close"></button>
+          <p class="popup-form__message"></p>
         </form>
       </div>
     </div>

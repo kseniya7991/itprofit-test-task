@@ -1,5 +1,6 @@
 @import '../scss/variables';
 
+//Анимация спиннера
 @mixin animationSpinner {
   @keyframes rotate {
     100% {
@@ -21,7 +22,20 @@
       stroke-dashoffset: -124;
     }
   }
-  
+}
+
+//Простая анимация плавного появления
+@mixin fadeIn {
+  @keyframes fadeIn {
+    from {
+        top: -20px;
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+        top: 0px;
+    }
+  }
 }
 
 // Миксины для брейкпоинтов

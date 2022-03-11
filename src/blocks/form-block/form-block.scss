@@ -27,7 +27,8 @@
 
 .form {
     width: 100%;
-    padding: 0px 10px 0px 10px;
+    box-sizing: border-box;
+    padding: 0px 15px;
 
     display: flex;
     flex-direction: column;
@@ -117,11 +118,19 @@
     &::placeholder {
         font-size: 13px;
         font-weight: 300;
+        transition: .3s;
     }
 
     &:focus {
         border-bottom: 1px solid $input-border-active;
         transition: .5s;
+    }
+
+    &:hover {
+        &::placeholder {
+            color: rgba(255, 255, 255, 0.87);
+            transition: .3s;
+        }
     }
 
     @include mediaNetbook {font-size: 14px;}

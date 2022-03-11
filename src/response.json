@@ -1,6 +1,4 @@
 {
-    "status": "error",
-    "fields": {
-        "inputName": "сообщение об ошибке"
-    }
+    "status": "success",
+    "msg": "Ваша заявка успешно отправлена"
 }
