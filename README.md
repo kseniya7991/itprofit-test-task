@@ -5,7 +5,7 @@
 ### Проект доступен по ссылке
 [Github Pages](https://kseniya7991.github.io/itprofit-test-task/)
 
-### Что было сделано:
+# Что было сделано:
 
 ## Соблюдены требования:
 1. Результат тестового задания залит в репозиторий [github](https://github.com/kseniya7991/itprofit-test-task)
