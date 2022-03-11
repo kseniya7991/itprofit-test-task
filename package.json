@@ -18,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/kseniya7991/itprofit-test-task/issues"
   },
-  "homepage": "https://github.com/kseniya7991/itprofit-test-task#readme",
+  "homepage": "https://github.com/kseniya7991/itprofit-test-task",
   "devDependencies": {
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.6.0",
