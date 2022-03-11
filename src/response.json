@@ -1,7 +1,6 @@
-{ "response": {
-    "status": "success",
-    "msg": "Your message has been successfully sent"
+{
+    "status": "error",
+    "fields": {
+        "inputName": "сообщение об ошибке"
+    }
 }
-}
-
-

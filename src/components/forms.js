@@ -1,17 +1,16 @@
 import checkEmailInput from "./checkEmailInput";
 import checkPhoneInput from "./checkPhoneInput";
-import MaskInput from 'mask-input';
 import Inputmask from "inputmask";
-import valueProcessor from "resolve-url-loader/lib/value-processor";
-import responseJSON from '../response.json';
 import { openPopup } from "./popup";
 import { postData } from "./postData";
+import responseJSON from '../response.json';
 
 const forms = () => {
     const form = document.querySelector("#contact-form"),
         inputList = document.querySelectorAll(".form__input"),
         submitBtn = document.querySelector(".form__submit-btn");
 
+    //Объект, в который будет записывать данные с формы
     let formData = {};
 
     //Маска для телефона. Формат Belarus
@@ -20,10 +19,8 @@ const forms = () => {
 
     //Статусы сообщений после отправки формы (отображаются в попапе)
     const statusMessage = {
-        success: "Success!",
         failure: "Oops :(",
-        successDescription: "Thank you! We will reply you ASAP.",
-        failureDescription: "Something went wrong. Please, try again.",
+        failureDescription: "Something went wrong. ",
     };
 
     //Функция показа текста ошибки
@@ -85,7 +82,6 @@ const forms = () => {
     handleInputs();
 
 
-
     //Обработка сообщений об ошибке. fields = объект с полями которые содержат ошибки, Все ошибки выведутся на экран.
     const handleErrorMessage = (errors) => {
         let errorText = "";
@@ -98,24 +94,28 @@ const forms = () => {
     //Слушатель кнопки сабмита
     form.addEventListener('submit', (e) => {
         e.preventDefault();
-        postData("http://localhost:3000/response", formData)
+        postData("/", formData)
         .then((res) => {
+            console.log(res)
             //Если ответ есть и его статус успешен - открытие попапа с данными
             if (res.status === "success") {
                 openPopup(res.status, res.msg)
-            } else {
-            //Если ответ есть и его статус неуспешен или какой-либо другой - открытие попапа с данными + обработка сообщения с ошибками
+            } else if ((Object.keys(res).length !== 0) && res.status){
+            //Если объект ответа не пуст и его статус неуспешен или какой-либо другой - открытие попапа с данными + обработка сообщения с ошибками
                 const errorMessage = handleErrorMessage(res.fields);
                 openPopup(res.status, errorMessage)
+            } else {
+                openPopup(statusMessage.failure, `${statusMessage.failureDescription}`)
             }
         })
         .catch((err) => {
+            const error = err || "";
             //Если ошибка содержит статус
             if(err.status) {
                 openPopup(err.status, `Something went wrong. ${err}`)
             } else {
             //Если ошибка не содержит статус, то в поле статус выводится стандартное значение.
-                openPopup("Oops :(", `Something went wrong. ${err}`)
+                openPopup(statusMessage.failure, `${statusMessage.failureDescription} ${error}`)
             }
         })
         .finally(() => {
@@ -127,6 +127,7 @@ const forms = () => {
 
     //Очистка инпута после отправки формы
     const clearInputs = () => {
+        formData = {}
         inputList.forEach((input) => input.value="")
     }; 
  

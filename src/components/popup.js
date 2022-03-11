@@ -9,7 +9,6 @@ const popup = document.querySelector('.popup'),
     scroll = calcScroll();
 
 
-
 //Корректировка отступов для отсутствия дергания страницы при открытии попапа
 const openPopupFix = () => {
     document.body.style.overflowY = "hidden";
@@ -63,7 +62,6 @@ export const openPopup = (status, description) => {
 //Закрытие попапа (при клике на оверлей или на одну из кнопок для закрытия)
 const closePopup = () => {
     popup.classList.remove('popup_active');
-
     closePopupFix();
 }
 
@@ -78,7 +76,6 @@ function calcScroll() {
 
     document.body.appendChild(div);
     let scrollWidth = div.offsetWidth - div.clientWidth;
-    console.log(div.offsetWidth, div.clientWidth)
     div.remove();
 
     return scrollWidth;

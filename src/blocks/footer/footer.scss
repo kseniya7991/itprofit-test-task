@@ -26,6 +26,11 @@
     top: 20px;
     transform: rotate(322deg);
 
+    @include mediaMobile {
+        right: 0px;
+        top: 0px;
+    }
+
     @include mediaMin {
         width: 30px;
         height: 30px;

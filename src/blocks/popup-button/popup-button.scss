@@ -5,25 +5,23 @@
     position: absolute;
     width: 100px;
     height: 100px;
-    background-color: $popup-btn-color;
-    color: #fff;
 
+    background-color: $popup-btn-color;
+    
     border: 0;
     border-radius: 50%;
     top: 100px;
     left: 150px;
-
-    font-size: 18px;
     
+    color: $form-text-color;
+    font-size: 18px;
     $font-family: $font-family;
     font-weight: 700;
     text-transform: uppercase;
 
     cursor: pointer;
 
-    &:hover {
-        box-shadow: 0px 0px 20px 0px $popup-btn-color;
-    }
+    &:hover {box-shadow: 0px 0px 20px 0px $popup-btn-color;}
 
     @include mediaMobile {
         top: 30px;
@@ -31,5 +29,4 @@
         width: 80px;
         height: 80px;
     }
-
 }

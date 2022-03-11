@@ -1,7 +1,6 @@
 const checkPhoneInput = (value) => {
-  const phone_format =  /\d/g;
-      
- const validateValue  = value.match(phone_format) || 0;
+  const phone_format =  /\d/g,
+        validateValue  = value.match(phone_format) || 0;
 
 
   if(validateValue.length === 12) {
