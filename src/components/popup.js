@@ -6,6 +6,7 @@ const popup = document.querySelector('.popup'),
     successFailure = popup.querySelector('.popup__image_failure'),
     form = document.querySelector(".popup-form"),
     popupBtn = document.querySelector('.popup-button'),
+    spinner = document.querySelector('.spinner'),
     scroll = calcScroll();
 
 
@@ -34,7 +35,7 @@ export const handlePopup = () => {
         }
     });
 
-    popupBtn.addEventListener('click', () => {openPopup()})
+    popupBtn.addEventListener('click', () => {openPopup("loading", "Please, wait...")})
     popupCloseButton.addEventListener('click', () => {closePopup()})
 
     calcScroll();
@@ -48,10 +49,18 @@ export const openPopup = (status, description) => {
 
     openPopupFix();
 
+    console.log(status)
+
     if(status === "success") {
+        spinner.classList.remove('spinner_active');
         successFailure.classList.remove('popup__image_active');
         successImage.classList.add('popup__image_active');
+    } else  if (status === "loading") {
+        successImage.classList.remove('popup__image_active');
+        successFailure.classList.remove('popup__image_active');
+        spinner.classList.add('spinner_active');
     } else {
+        spinner.classList.remove('spinner_active');
         successImage.classList.remove('popup__image_active');
         successFailure.classList.add('popup__image_active');
     }

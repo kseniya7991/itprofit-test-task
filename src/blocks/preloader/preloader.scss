@@ -15,3 +15,24 @@
         display: block;
     }
 }
+
+.spinner {
+    @include animationSpinner;
+    display: none;
+    animation: rotate 2s linear infinite;
+    z-index: 2;
+    position: relative;
+    width: 50px;
+    height: 50px;
+
+    &_active {
+        display: block;
+    }
+    
+    & .path {
+      stroke: rgb(255, 255, 255);
+      stroke-linecap: round;
+      animation: dash 1.5s ease-in-out infinite;
+    }
+}
+
