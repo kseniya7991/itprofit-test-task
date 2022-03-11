@@ -1,0 +1,35 @@
+@import '../../scss/mixins';
+@import '../../scss/variables';
+
+.popup-button {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: $popup-btn-color;
+    color: #fff;
+
+    border: 0;
+    border-radius: 50%;
+    top: 100px;
+    left: 150px;
+
+    font-size: 18px;
+    
+    $font-family: $font-family;
+    font-weight: 700;
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    &:hover {
+        box-shadow: 0px 0px 20px 0px $popup-btn-color;
+    }
+
+    @include mediaMobile {
+        top: 30px;
+        font-size: 14px;
+        width: 80px;
+        height: 80px;
+    }
+
+}

@@ -3,7 +3,7 @@
 
 .form-block {
     position: relative;
-    width: 400px;
+    width: 500px;
     padding: 50px 30px;
     margin: 30px;
 
@@ -14,8 +14,17 @@
     
     background-color: rgba(0, 0, 0, 0.918);
 
+    z-index: 0;
+
+    @include mediaNetbook {
+        width: 400px;
+        padding: 40px 20px;
+    }
     @include mediaMobile {
-        padding: 30px 20px;
+        padding: 25px 20px;
+    }
+    @include mediaMin {
+        padding: 20px 20px;
     }
 }
 
@@ -31,27 +40,44 @@
 
 .form__heading {
     margin: 0;
-    margin-bottom: 30px;
-    font-size: 35px;
+    margin-bottom: 40px;
+    font-size: 45px;
+    line-height: 120%;
     font-weight: 600;
     color: $form-heading;
 
     text-align: center;
 
+    @include mediaNetbook {
+        font-size: 40px;
+        margin-bottom: 30px;
+    }
+    
     @include mediaMobile {
-        line-height: 120%;
+        font-size: 35px;
+    }
+
+    @include mediaMin {
         font-size: 30px;
     }
 }
 
 .form__description {
+    width: 100%;
+    text-align: center;
+
     margin: 0;
     margin-bottom: 30px;
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 200;
     color: $form-text-color;
     line-height: 150%;
     letter-spacing: 1px;
+
+    @include mediaNetbook {
+        font-size: 14px;
+        margin-bottom: 25px;
+    }
 }
 
 
@@ -61,22 +87,44 @@
     outline: none;
     border: 0;
     padding: 10px 5px 10px 5px;
-    margin-bottom: 22px;
+    margin-bottom: 5px;
     box-sizing: border-box;
     background-color: transparent;
 
+    cursor: pointer;
+
     color: $form-text-color;
     font-family: $font-family;
-    font-weight: 300;
+    font-weight: 400;
     text-decoration: none;
     letter-spacing: 1px;
     font-size: 14px;
 
     border-bottom: 1px solid $input-border;
+    transition: .2s;
 
     &::placeholder {
         font-size: 13px;
+        font-weight: 300;
     }
+
+    &:focus {
+        border-bottom: 1px solid $input-border-active;
+        transition: .5s;
+    }
+
+    @include mediaNetbook {
+        font-size: 14px;
+    }
+
+    &_error {
+        border-bottom: 1px solid $input-error;
+        &:focus {
+            border-bottom: 1px solid $input-error;
+            transition: .5s;
+        }
+    }
+
 }
 
 .form__input_textarea {
@@ -87,25 +135,49 @@
     max-width: 100%;
     resize: vertical;
 
-    font-size: 14px;
-    letter-spacing: 1px;
-    line-height: 120%;
+    transition: none;
+
+    &:focus {
+        transition: none;
+    }
 }
 
 .form__input-error {
     position: relative;
-    top: -18px;
-    display: none;
+ 
+    display: block;
     margin: 0;
     padding: 0;
+    padding-left: 5px;
+    margin-bottom: 10px;
+    bottom: -5px;
+
     color: $input-error;
-    font-weight: 100;
+    font-weight: 300;
     letter-spacing: 1px;
-    font-size: 12px;
+    font-size: 11px;
+    line-height: 150%;
+    visibility: hidden;
+
+    opacity: 0;
+    transition: .2s;
 
     &_active {
-        display: block;
+        opacity: 1;
+        visibility: visible;
+        transition: .2s;
+        bottom: 0px;
     }
+
+    
+    @include mediaMobile {
+        margin-bottom: 3px;
+    }
+
+    @include mediaMobile {
+        margin-bottom: 0px;
+    }
+
 }
 
 .form__background {
@@ -120,6 +192,7 @@
 .form__submit-btn {
     position: relative;
     width: 150px;
+    height: 50px;
     padding: 10px 20px;
     margin-top: 20px;
     align-self: center;
@@ -130,18 +203,62 @@
 
     text-align: center;
     color: $form-text-color;
-    font-size: 14px;
+    font-size: 18px;
     text-transform: uppercase;
 
-/*     &::after {
-        position: absolute;
+    transition: .3s;
+    opacity: 0.5;
+    z-index: 1;
+    transition: .3s;
+    overflow: hidden;
+
+    &::before {
         content: "";
-        width: 20px;
-        height: 20px;
-        background-image: url('../../img/arrow.png');
-        right: 12px;
-        top: 50%;
-        transform: translate(0, -50%);
-        background-size: contain;
-    } */
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        background-color:  transparent;
+        border-radius: 50%;
+        left: 50%;
+        bottom: -100%;
+        transform: translate(-50%, 0);
+        z-index: -1;
+
+        transition: .3s;
+        visibility: hidden;
+    }
+
+    &_active {
+        transition: .3s;
+        opacity: 1;
+        cursor: pointer;
+
+        &:hover {
+            transition: .3s;
+            border: 1px solid transparent;
+            &::before {
+                visibility: visible;
+                background-color:  $submit-btn-color ;
+                transition: .3s;
+                width: 150px;
+                height: 150px;
+            }
+        }
+    }
+
+    @include mediaNetbook {
+        font-size: 16px;
+    }
+
+    @include mediaMobile {
+        height: 40px;
+        font-size: 15px;
+        &:hover {
+            &::before {
+                width: 200px;
+                height: 200px;
+            }
+        }
+    }
+         
 }

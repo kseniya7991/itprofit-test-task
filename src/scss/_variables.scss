@@ -6,8 +6,15 @@ $form-text-color: #fff;
 $input-border: rgba(255, 255, 255, 0.144);
 $input-border-active: rgba(255, 255, 255, 0.603);
 $input-error: rgb(227, 129, 21);
+
 $form-heading: #deaa69;
+
+$submit-btn-color: #ff8d02;
+$popup-btn-color: #538ab5;
 
 //Брейкпоинты
 $breakpoint-max: 1920px;
-$breakpoint-mobile: 360px;
+$breakpoint-netbook: 1024px;
+$breakpoint-tablet: 768px;
+$breakpoint-mobile: 468px;
+$breakpoint-min: 360px;

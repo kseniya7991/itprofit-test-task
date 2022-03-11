@@ -3,14 +3,19 @@
 
 .footer {
     height: 100%;
-    width: 80%;
+    width: 70%;
     max-width: $breakpoint-max;
-    min-width: $breakpoint-mobile;
+    min-width: $breakpoint-min;
     margin: 0 auto;
 
     display: flex;
     align-items: center;
     justify-content: flex-end;
+
+    @include mediaTablet {
+        width: 100%;
+        justify-content: center;
+    }
 }
 
 .footer__paw-icon {
@@ -21,7 +26,7 @@
     top: 20px;
     transform: rotate(322deg);
 
-    @include mediaMobile {
+    @include mediaMin {
         width: 30px;
         height: 30px;
     }

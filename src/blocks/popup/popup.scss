@@ -2,7 +2,7 @@
 @import '../../scss/variables';
 
 .popup {
-    position: absolute;
+    position: fixed;
     display: block;
     min-width: 360px;
     top: 0;
@@ -16,9 +16,13 @@
     justify-content: center;
 
     visibility: hidden;
+    opacity: 0;
+    transition: .5s;
 
     &_active {
+        transition: .5s;
         visibility: visible;
+        opacity: 1;
     }
 }
 

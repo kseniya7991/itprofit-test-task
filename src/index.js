@@ -1,17 +1,13 @@
-import './scss/index.scss';
-
-import MaskInput from 'mask-input';
+import forms from './components/forms';
+import { handlePopup } from './components/popup'
  
+const preloader = document.querySelector('.preloader');
 
-window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("load", () => {
     "use strict";
-
-    const maskInput = new MaskInput(document.querySelector('#phone'), {
-        mask: '+ 375 (00) 00-00-0000',
-        alwaysShowMask: true,
-        maskChar: '_',
-      });
-
+    preloader.classList.remove('preloader_active');
+    handlePopup();
+    forms();
 });
 
 

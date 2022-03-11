@@ -4,6 +4,9 @@
 @import '../blocks/form-block/form-block.scss';
 @import '../blocks/popup-form/popup-form.scss';
 @import '../blocks/popup/popup.scss';
+@import '../blocks/popup-button/popup-button.scss';
+@import '../blocks/page/page.scss';
+@import '../blocks/preloader/preloader.scss';
 
 
 html {
@@ -13,16 +16,8 @@ html {
 }
 
 body {
-    height: 100vh;
-    width: 100vw;
-    position: relative;
+    height: 120vh;
     margin: 0;
-
-    
-    background-image: url('../img/background.webp');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 
 
